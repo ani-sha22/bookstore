@@ -66,6 +66,3 @@ const google_login = async (req, res) => {
 }
 
 module.exports = { signupUser, loginUser, google_login, google_signup }
-
-
-
