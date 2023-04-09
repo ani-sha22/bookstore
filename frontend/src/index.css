@@ -17,7 +17,7 @@
 
 /* Body styles */
 body {
-  background-image: url('background-image.jpg');
+  background-image: url('https://images.unsplash.com/photo-1623771702356-8cd72949bbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTg5fHxib29rJTIwc3RvcmV8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
   background-size: cover;
   font-family: sans-serif;
 }
