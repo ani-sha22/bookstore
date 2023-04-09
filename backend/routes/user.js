@@ -13,6 +13,3 @@ router.post('/signup', signupUser)
 router.post('/gsignup',google_signup)
 
 module.exports = router
-
-
-
