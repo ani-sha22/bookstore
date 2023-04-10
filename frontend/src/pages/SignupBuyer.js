@@ -33,7 +33,7 @@ const SignupBuyer = () => {
         onChange={(e) => setP1(e.target.value)} 
         value={p1} 
       />
-            <label>Confirm Password:</label>
+      <label>Confirm Password:</label>
       <input 
         type="password" 
         onChange={(e) => setP2(e.target.value)} 
