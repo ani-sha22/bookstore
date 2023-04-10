@@ -14,7 +14,7 @@ const Navbar = () => {
     <header>
       <div className="container">
         <Link to="/">
-        <h1><img src = "https://cdn-icons-png.flaticon.com/128/3771/3771417.png" alt="img.png"></img>BOOK STORE</h1>
+        <h1>BOOK STORE</h1>
         </Link>
         <nav>
           {user && (
