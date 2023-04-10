@@ -6,14 +6,15 @@ import jwt_decode from 'jwt-decode'
 
 const SignupBuyer = () => {
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [p1, setP1] = useState('')
+  const [p2, setP2] = useState('')
   const {signup, error, isLoading} = useSignup()
   const {googlesignup, gerror} = useGoogleSignup()
   
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    await signup(email, password, "buyer")
+    await signup(email, p1, p2, "buyer")
   }
 
   return (
@@ -29,8 +30,14 @@ const SignupBuyer = () => {
       <label>Password:</label>
       <input 
         type="password" 
-        onChange={(e) => setPassword(e.target.value)} 
-        value={password} 
+        onChange={(e) => setP1(e.target.value)} 
+        value={p1} 
+      />
+      <label>Confirm Password:</label>
+      <input 
+        type="password" 
+        onChange={(e) => setP2(e.target.value)} 
+        value={p2} 
       />
 
       <button disabled={isLoading}>Sign up</button>
