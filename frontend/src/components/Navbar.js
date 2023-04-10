@@ -14,14 +14,15 @@ const Navbar = () => {
     <header>
       <div className="container">
         <Link to="/">
-        <h1>BOOK STORE</h1>
+        <div className='heading' >
+          <img src="https://cdn-icons-png.flaticon.com/128/3771/3771417.png" alt=""></img>
+        <h1 >BOOK STORE</h1></div>
         </Link>
         <nav>
           {user && (
             <div>
               <span>{user.email}</span>
-              <span>  </span>
-              <span>{user.role}</span>
+              <span> Hello, {user.role} </span>
               <Link to="/dashboard">Dashboard</Link>
               <button onClick={handleClick}>Log out</button>
             </div>
