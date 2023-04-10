@@ -20,16 +20,19 @@ const userSchema = new Schema({
 })
 
 // static signup method
-userSchema.statics.signup = async function(email, password, role) {
+userSchema.statics.signup = async function(email, p1, p2, role) {
 
   // validation
-  if (!email || !password) {
+  if (!email || !p1 || !p2) {
     throw Error('All fields must be filled')
   }
   if (!validator.isEmail(email)) {
     throw Error('Email not valid')
   }
-  if (!validator.isStrongPassword(password)) {
+  if(p1 != p2){
+    throw Error('Password mismatch')
+  }
+  if (!validator.isStrongPassword(p1)) {
     throw Error('Password not strong enough')
   }
 
@@ -40,7 +43,7 @@ userSchema.statics.signup = async function(email, password, role) {
   }
 
   const salt = await bcrypt.genSalt(10)
-  const hash = await bcrypt.hash(password, salt)
+  const hash = await bcrypt.hash(p1, salt)
 
   const user = await this.create({ email, password: hash, role})
 
