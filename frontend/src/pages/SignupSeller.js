@@ -2,6 +2,8 @@ import { useState} from "react"
 import { useSignup } from "../hooks/useSignup"
 import { useGoogleSignup } from "../hooks/useGoogleSignup"
 import { GoogleLogin } from '@react-oauth/google';
+import { LoginSocialFacebook } from 'reactjs-social-login'
+import { FacebookLoginButton } from 'react-social-login-buttons'
 import jwt_decode from 'jwt-decode'
 
 const SignupSeller = () => {
@@ -10,6 +12,11 @@ const SignupSeller = () => {
   const [p2, setP2] = useState('')
   const {signup, error, isLoading} = useSignup()
   const {googlesignup, gerror} = useGoogleSignup()
+  
+  const githubHandle = () => {
+    var url = 'https://github.com/login/oauth/authorize?client_id=273fabb2103e5ab1940c&redirect_uri=http://localhost:3000/home?path=/&scope=user:email'
+    window.location.href = url
+  }
   
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -40,7 +47,7 @@ const SignupSeller = () => {
         value={p2} 
       />
 
-      <button disabled={isLoading}>Sign up</button>
+      <button disabled={isLoading} className="login-btn">Sign up</button>
       {error && <div className="error">{error}</div>}
       {gerror && <div className="error">{gerror}</div>}
       <br />
@@ -55,6 +62,19 @@ const SignupSeller = () => {
     console.log('Login Failed');
   }}
 />
+
+<LoginSocialFacebook
+appId="906279810598693"
+onResolve = {(response) => {
+  console.log(response);
+}}
+onReject = {(error) => {
+  console.log(error)
+}}
+>
+<FacebookLoginButton/>
+</LoginSocialFacebook>
+<button onClick={githubHandle} className="github-login"><img src="https://img.icons8.com/ios-filled/2x/github.png" alt="#"/>Login with GitHub</button>
     </form>
   )
 }
